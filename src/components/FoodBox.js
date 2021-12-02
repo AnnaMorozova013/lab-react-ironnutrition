@@ -13,7 +13,7 @@ export default function FoodBox({ food }) {
                     <p>Calories: {food.calories}</p>
                     <p>Servings: {food.servings}</p>
                     <p>
-                        <b>Total Calories: {food.calories*food.servings} </b> kcal
+                        <b>Total Calories: {food.calories*food.servings}) </b> kcal
                     </p>
                     <Button type="primary"> Delete </Button>
                 </Card>

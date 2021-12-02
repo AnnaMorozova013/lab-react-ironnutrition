@@ -8,10 +8,11 @@
   pointer-events: none;
 }
 
-.main {
-  align-items: center;
-  justify-content: center;
-  background-color: black;
+.foodboxes {
+ 
+    display: flex;
+    flex-wrap: wrap;
+  
 }
 
 @media (prefers-reduced-motion: no-preference) {
