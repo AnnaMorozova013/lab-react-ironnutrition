@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import foods from "./foods.json";
+import React, { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  //state variable of imported list (objects array)
+const setInitialValue = () => {
+  return foods
 }
+const [food, setFood] = useState(() => setInitialValue())
+
+//map over state variable
+
+const foodList = food.map(meal => {
+return (
+  <div>
+  <p> {meal.name} </p>
+  <img src={meal.image} alt='' width={'300px'} />
+  </div>
+)  
+})
+  return (
+  <div className="App">
+<h1>
+  Food List
+</h1>
+{foodList}
+  </div>
+  )
+}
+
 
 export default App;
