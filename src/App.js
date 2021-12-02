@@ -2,32 +2,46 @@ import "./App.css";
 import data from "./foods.json";
 import React, { useState } from 'react';
 import FoodBox from "./components/FoodBox";
+import { Button } from 'antd';
 
 function App() {
 
   //state variable of imported list (objects array)
-const setInitialValue = () => {
-  return data
-}
-const [foods, setFoods] = useState(() => setInitialValue())
+  const [foods, setFoods] = useState(data)
+  const [foodFilter, setFoodFilter] = useState(data)
+  
 
-//map over state variable
+  //delete
+  const clickToDelete = (props) => {
+    setFoods(
+      foods.filter((type) => {
+        if(type.name===props){
+          return false
+        } else {
+          return true
+        }
+      } 
+     )
+    )
+  }
 
-const foodList = data.map(food => {
-return (
-  <div>
-   <FoodBox food={food}/>
-  </div>
-)  
-})
+  //map over state variable
+  console.log(foods.length)
+  const foodList = data.map(food => {
+    return (
+      <div>
+        <FoodBox food={food} clickToDelete={clickToDelete} />
+      </div>
+    )
+  })
 
   return (
-  <div className="App">
-<h1>
-  Food List
-</h1>
-{foodList}
-  </div>
+    <div className="App">
+      <h1>
+        Food List
+      </h1>
+      {foodList}
+    </div>
   )
 }
 
