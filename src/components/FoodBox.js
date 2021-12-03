@@ -3,21 +3,20 @@ import React from 'react';
 import { Card, Col, Divider, Button } from "antd";
 import "antd/dist/antd.css";
 
-export default function FoodBox(props) {
+export default function FoodBox({foodList, clickToDelete}) {
     return (
         
             <Col>
                 <Card
-                    title={props.food.name}
-                    style={{ width: 230, height: 300, margin: 10 }}
-                >
-                    <img src={props.food.image} height={60} alt=''/>
-                    <p>Calories: {props.food.calories}</p>
-                    <p>Servings: {props.food.servings}</p>
+                    title={foodList.name}
+                    style={{ width: 230, height: 300, margin: 10 }}>
+                    <img src={foodList.image} height={60} alt=''/>
+                    <p>Calories: {foodList.calories}</p>
+                    <p>Servings: {foodList.servings}</p>
                     <p>
-                        <b>Total Calories: {props.food.calories*props.food.servings} kcal</b> 
+                        <b>Total Calories: {foodList.calories*foodList.servings} kcal</b> 
                     </p>
-                    <Button onClick={() => props.clickToDelete(props.food.name)} type="primary"> Delete </Button>
+                    <Button onClick={() => clickToDelete(foodList.name)} type="primary"> Delete </Button>
                 </Card>
             </Col>
     )
