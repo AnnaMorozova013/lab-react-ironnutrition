@@ -5,7 +5,7 @@ import { Input, Divider } from 'antd';
 export default function AddFoodForm(props) {
 
     const [name, setName] = useState('')
-    const [image, setImage] = useState(null)
+    const [image, setImage] = useState('')
     const [calories, setCalories] = useState('')
     const [servings, setServings] = useState('')
 
@@ -27,28 +27,28 @@ export default function AddFoodForm(props) {
         };
         props.addNewFood(newFood)
         setName('')
-        setImage(null)
+        setImage('')
         setCalories(0)
-        setServings(0)
+        setServings(1)
     }
 
     return (
 
-        <div className="addNewFood"  >
+        <div className="addNewFood">
 
             <form onSubmit={handleSubmit} >
                 <Divider> Add Food </Divider>
                 <label>Name</label>
-                <Input type="text" value={name} onChange={handleName} />
+                <Input type="text" value={name} onChange={handleName} placeholder='Add name here' />
 
                 <label>Image</label>
-                <Input type="file" value={image} onChange={handleImage} />
+                <Input type="text" value={image} onChange={handleImage}  placeholder='Insert image link here'/>
 
                 <label>Calories</label>
-                <Input type="number" value={calories} onChange={handleCalories} />
+                <Input type="number" value={calories} onChange={handleCalories} placeholder='Add calories here' />
 
                 <label>Servings</label>
-                <Input type="number" value={servings} onChange={handleServings} />
+                <Input type="number" value={servings} onChange={handleServings} placeholder='Add servings here'/>
 
                 <button type="submit">Add food</button>
 

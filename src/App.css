@@ -15,6 +15,12 @@
  
 }
 
+.search-bar {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
 .foodBoxes {
   display: flex;
   text-align: center;

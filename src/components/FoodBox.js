@@ -6,7 +6,7 @@ import "antd/dist/antd.css";
 export default function FoodBox({ foodList, clickToDelete }) {
     return (
 
-        <Col className="foodBoxes">
+        <Col>
             <Card
                 title={foodList.name}
                 style={{ width: 230, height: 300, margin: 10 }}>

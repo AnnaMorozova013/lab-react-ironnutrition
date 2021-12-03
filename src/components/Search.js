@@ -13,9 +13,11 @@ const handleSearch = (e) => {
 
 return (
         <div className="search-bar">
-            <Divider>Search</Divider>
-            <label>Search</label>
-            <Input className="search-input" value={foodName} type="text" onChange={handleSearch}  />
+        <form onChange={handleSearch}>
+            <Divider> Search </Divider>
+            <label> Search </label>
+            <Input className="search-input" value={foodName} placeholder="Search here for food" type="text" />
+            </form>
         </div>
     )
 }

@@ -10,7 +10,7 @@ function App() {
 
   //state variables
   const [foods, setFoods] = useState(data)
-  //in order for search bar to work, make new state for all foods to filter through
+  //in order for search bar to work, make new state for all foods to filter through:
   const [allFoods, setAllFoods] = useState(data)
 
   //delete
@@ -37,8 +37,8 @@ function App() {
 
   return (
     <div className="App" >
-      <AddFoodForm addNewFood={addNewFood} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} />
-      <Search filterFoodList={filterFoodList} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} />
+      <AddFoodForm className='addNewFood' addNewFood={addNewFood} />
+      <Search className='search-bar' filterFoodList={filterFoodList} />
 
       <Row className='foodBoxes'>
         {foods.map((type) => {
