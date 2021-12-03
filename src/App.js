@@ -10,46 +10,49 @@ function App() {
 
   //state variables
   const [foods, setFoods] = useState(data)
+  //in order for search bar to work, make new state for all foods to filter through
+  const [allFoods, setAllFoods] = useState(data)
 
   //delete
   const clickToDelete = (name) => {
-        const deleteByName = foods.filter((deleteOne) => deleteOne.name !== name);
-        setFoods(deleteByName)
-    }
+    const deleteByName = foods.filter((deleteOne) => deleteOne.name !== name);
+    setFoods(deleteByName)
+  }
 
   // console.log(foods.length)
 
-  //add new food
+  // add new food
   const addNewFood = (newFood) => {
     setFoods([newFood, ...foods])
     data.push(newFood)
   }
 
-  //search
+  // search
   const filterFoodList = (type) => {
-    const filterFood = foods.filter((oneFood) => {
-      return oneFood.name.toLowerCase().startsWith(type.toLowerCase());
+    const filterFood = allFoods.filter((meal) => {
+      return meal.name.toLowerCase().startsWith(type.toLowerCase());
     })
     setFoods(filterFood);
   }
 
   return (
     <div className="App" >
-   <AddFoodForm addNewFood={addNewFood} style={{display: 'flex',  justifyContent:'center', alignItems:'center'}} />
-   <Search filterFoodList={filterFoodList} style={{display: 'flex',  justifyContent:'center', alignItems:'center'}} />    
-  
-      <Row className = 'foodBoxes'>
+      <AddFoodForm addNewFood={addNewFood} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} />
+      <Search filterFoodList={filterFoodList} style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} />
+
+      <Row className='foodBoxes'>
         {foods.map((type) => {
-            return(
-              <FoodBox 
+          return (
+            <FoodBox
               // Each child in a list should have a unique "key" prop:
-                key={type._id}
-                foodList={type}
-                clickToDelete={clickToDelete}
-              />
-            )})}
+              key={type._id}
+              foodList={type}
+              clickToDelete={clickToDelete}
+            />
+          )
+        })}
       </Row>
     </div>);
-  }
-  
-  export default App;
+}
+
+export default App;
