@@ -4,12 +4,13 @@ import React, { useState } from 'react';
 import FoodBox from "./components/FoodBox";
 import { Row } from 'antd'; //responsive columns with Ant Design
 import AddFoodForm from "./components/AddFoodForm";
+import Search from "./components/Search";
 
 function App() {
 
   //state variables
   const [foods, setFoods] = useState(data)
-  
+
   //delete
   const clickToDelete = (name) => {
         const deleteByName = foods.filter((deleteOne) => deleteOne.name !== name);
@@ -24,11 +25,18 @@ function App() {
     data.push(newFood)
   }
 
+  //search
+  const filterFoodList = (type) => {
+    const filterFood = foods.filter((oneFood) => {
+      return oneFood.name.toLowerCase().startsWith(type.toLowerCase());
+    })
+    setFoods(filterFood);
+  }
+
   return (
     <div className="App" >
-
    <AddFoodForm addNewFood={addNewFood} style={{display: 'flex',  justifyContent:'center', alignItems:'center'}} />
-            
+   <Search filterFoodList={filterFoodList} style={{display: 'flex',  justifyContent:'center', alignItems:'center'}} />    
   
       <Row className = 'foodBoxes'>
         {foods.map((type) => {

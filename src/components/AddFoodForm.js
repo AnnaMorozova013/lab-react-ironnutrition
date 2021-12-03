@@ -26,7 +26,7 @@ export default function AddFoodForm(props) {
             servings: servings
         };
         props.addNewFood(newFood)
-        setName("")
+        setName('')
         setImage(null)
         setCalories(0)
         setServings(0)
@@ -36,7 +36,7 @@ export default function AddFoodForm(props) {
 
         <div className="addNewFood"  >
 
-            <form onSubmit={handleSubmit}  >
+            <form onSubmit={handleSubmit} >
                 <Divider> Add Food </Divider>
                 <label>Name</label>
                 <Input type="text" value={name} onChange={handleName} />
