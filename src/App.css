@@ -8,11 +8,18 @@
   pointer-events: none;
 }
 
-.foodboxes {
+.addNewFood {
+  display: flex;
+  text-align: center;
+  justify-content: center;
  
-    display: flex;
-    flex-wrap: wrap;
-  
+}
+
+.foodBoxes {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+ 
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -35,6 +42,7 @@
 .App-link {
   color: #61dafb;
 }
+
 
 @keyframes App-logo-spin {
   from {
